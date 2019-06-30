@@ -11,7 +11,7 @@ import javax.validation.Validator;
 import java.util.Locale;
 
 @Configuration
-@EnableJpaRepositories(basePackages = "pl.coderslab.FMS.repository")
+@EnableJpaRepositories(basePackages = "pl.coderslab.FMS")
 public class AppConfig {
 
     @Bean(name = "localeResolver")
