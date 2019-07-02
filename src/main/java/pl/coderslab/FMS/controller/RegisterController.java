@@ -18,6 +18,8 @@ public class RegisterController {
     @Autowired
     private UserRepository userRepository;
 
+    //tworzenie nowego usera
+
     @GetMapping("/user/register/add")
     public String add(Model model){
         model.addAttribute("user", new User());

@@ -16,6 +16,11 @@ public class Place {
     private Long id;
 
     @NotEmpty
+    @Size(max = 20)
+    private String country;
+
+
+    @NotEmpty
     private String loadingPlace;
 
     @NotEmpty
@@ -74,6 +79,14 @@ public class Place {
         this.postCode = postCode;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     //toString
 
 
@@ -81,6 +94,7 @@ public class Place {
     public String toString() {
         return "Place{" +
                 "id=" + id +
+                ", country='" + country + '\'' +
                 ", loadingPlace='" + loadingPlace + '\'' +
                 ", unloadingPlace='" + unloadingPlace + '\'' +
                 ", postCode='" + postCode + '\'' +

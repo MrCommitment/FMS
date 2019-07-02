@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class MainController {
 
+
     @GetMapping("/")
     public String home(HttpSession httpSession) {
         if (httpSession.getAttribute("loggedUser") == null) {
