@@ -1,4 +1,4 @@
-package pl.coderslab.FMS.entity;
+package pl.coderslab.FMS.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
@@ -14,7 +14,6 @@ public class Load {
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 30)
     private double weight;
 
     @NotEmpty
@@ -27,48 +26,17 @@ public class Load {
 
 
     // relacja Load-Customer
-
-    @NotNull
-    @ManyToOne
-    private Customer customer;
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-
-    // relacja Load-Truck
-
-    @NotNull
-    @ManyToOne
-    private Truck truck;
-
-    public Truck getTruck() {
-        return truck;
-    }
-
-    public void setTruck(Truck truck) {
-        this.truck = truck;
-    }
-
-
-    //relacja Load-Tour
-
-    @NotNull
-    @ManyToOne
-    private Tour tour;
-
-    public Tour getTour() {
-        return tour;
-    }
-
-    public void setTour(Tour tour) {
-        this.tour = tour;
-    }
+//
+//    @ManyToOne
+//    private Customer customer;
+//
+//    public Customer getCustomer() {
+//        return customer;
+//    }
+//
+//    public void setCustomer(Customer customer) {
+//        this.customer = customer;
+//    }
 
     // konstruktor bezwarunkowy
 
@@ -120,9 +88,6 @@ public class Load {
                 ", weight=" + weight +
                 ", goods='" + goods + '\'' +
                 ", transitTime='" + transitTime + '\'' +
-                ", customer=" + customer +
-                ", truck=" + truck +
-                ", tour=" + tour +
                 '}';
     }
 }

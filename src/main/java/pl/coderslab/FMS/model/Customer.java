@@ -1,24 +1,26 @@
-package pl.coderslab.FMS.entity;
+package pl.coderslab.FMS.model;
 
 import javax.persistence.*;
-;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
-@Table(name = "contacts")
-public class Contacts {
+@Table(name = "customer")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    private String companyName;
+    private String fullName;
 
     @NotEmpty
-    private String companyAdress;
+    @Email
+    private String email;
 
     @NotEmpty
     @Size(min = 5, max = 50)
@@ -28,9 +30,14 @@ public class Contacts {
     @Size(min = 10, max = 20)
     private String phoneNr;
 
-    @NotEmpty
-    @Email
-    private String email;
+
+    //relacja Customer-Load
+
+//    @NotNull
+//    @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
+//    private List<Load> loads;
+
+    //setter&getter
 
 
     public Long getId() {
@@ -41,20 +48,20 @@ public class Contacts {
         this.id = id;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getCompanyAdress() {
-        return companyAdress;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCompanyAdress(String companyAdress) {
-        this.companyAdress = companyAdress;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getContactPerson() {
@@ -73,26 +80,17 @@ public class Contacts {
         this.phoneNr = phoneNr;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    //toString
 
     @Override
     public String toString() {
-        return "Contact{" +
+        return "Customer{" +
                 "id=" + id +
-                ", companyName='" + companyName + '\'' +
-                ", companyAdress='" + companyAdress + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +
                 ", phoneNr='" + phoneNr + '\'' +
-                ", email='" + email + '\'' +
                 '}';
     }
 }
-
-
-

@@ -2,11 +2,8 @@ package pl.coderslab.FMS.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.coderslab.FMS.model.User;
+import pl.coderslab.FMS.model.Tour;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findByEmail(String email);
-
+public interface TourRepository extends JpaRepository<Tour, Long> {
 }

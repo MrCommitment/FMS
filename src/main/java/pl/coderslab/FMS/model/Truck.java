@@ -1,7 +1,5 @@
-package pl.coderslab.FMS.entity;
+package pl.coderslab.FMS.model;
 
-
-import pl.coderslab.FMS.entity.Load;
 
 import javax.persistence.*;
 import javax.persistence.GeneratedValue;
@@ -34,8 +32,7 @@ public class Truck {
 
     //realcja Tour-Load
 
-    @NotNull
-    @OneToMany(mappedBy = "truck", cascade = CascadeType.REMOVE)
+    @OneToMany( cascade = CascadeType.REMOVE)
     private List<Load> loads;
 
     public List<Load> getLoads() {

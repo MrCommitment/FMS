@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>Company adress:</td>
-            <td><form:password path="companyAdress"/></td>
+            <td><form:input path="companyAdress"/></td>
             <td><form:errors path="companyAdress" cssClass="error"/></td>
         </tr>
         <tr>

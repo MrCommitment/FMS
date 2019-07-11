@@ -12,7 +12,7 @@
 <table align="center">
     <tr>
         <div align="center">
-            <a href="<c:url value="/goAdd" /> ">
+            <a href="<c:url value="/contacts/goAdd" /> ">
                 <button>
                     Add new contact
                 </button>
@@ -34,7 +34,7 @@
             </a>
         </div>
         <div align="center">
-            <a href="<c:url value="/all" /> ">
+            <a href="<c:url value="/contacts/all" /> ">
                 <button>
                     Show all contacts
                 </button>

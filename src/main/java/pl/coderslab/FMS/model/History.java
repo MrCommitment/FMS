@@ -1,4 +1,4 @@
-package pl.coderslab.FMS.entity;
+package pl.coderslab.FMS.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;

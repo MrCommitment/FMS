@@ -16,67 +16,53 @@
 <body>
 <h3 align="center">${headerMessage}</h3>
 <br/>
-<form:form method="post" modelAttribute="place">
+<form:form method="post" modelAttribute="loadInfo">
     <h3 align="left">Add cargo :</h3>
     <table align="left">
         <caption align="top">Loading cargo form:</caption>
         <tr>
             <td>Country:</td>
-            <td><form:input path="country1"/></td>
-            <td><form:errors path="country1" cssClass="error"/></td>
+            <td><form:input path="loadingCountry"/></td>
+            <td><form:errors path="loadingCountry" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Loading place:</td>
-            <td><form:password path="loadingPlace"/></td>
-            <td><form:errors path="loadingPlace" cssClass="error"/></td>
+            <td><form:input path="loadingCity"/></td>
+            <td><form:errors path="loadingCity" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Post code:</td>
-            <td><form:input path="postCode1"/></td>
-            <td><form:errors path="postCode" cssClass="error"/></td>
+            <td><form:input path="loadingPostCode"/></td>
+            <td><form:errors path="loadingPostCode" cssClass="error"/></td>
         </tr>
     </table>
-    <table>
-        <tr>
-<%--            value = nie wiem , jeszcze ??--%>
-            <td><input type="hidden" name="action" value="register"/></td>
-            <td><input type="submit" value="Save loading form !"/></td>
-        </tr>
-    </table>
-</form:form>
+
 <br/>
-<form:form method="post" modelAttribute="place">
-    <h3 align="right">Add cargo :</h3>
-    <table align="right">
+
+    <h3 align="left">Add cargo :</h3>
+    <table align="left">
         <caption align="top">Unloading cargo form:</caption>
         <tr>
             <td>Country:</td>
-            <td><form:input path="country2"/></td>
-            <td><form:errors path="country2" cssClass="error"/></td>
+            <td><form:input path="unloadingCountry"/></td>
+            <td><form:errors path="unloadingCountry" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Unloading place:</td>
-            <td><form:input path="unloadingPlace"/></td>
-            <td><form:errors path="unloadingPlace" cssClass="error"/></td>
+            <td><form:input path="unloadingCity"/></td>
+            <td><form:errors path="unloadingCity" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Post code:</td>
-            <td><form:input path="postCode2"/></td>
-            <td><form:errors path="postCode2" cssClass="error"/></td>
+            <td><form:input path="unloadingPostCode"/></td>
+            <td><form:errors path="unloadingPostCode" cssClass="error"/></td>
         </tr>
     </table>
-    <table>
-        <tr>
-                <%--            value = nie wiem , jeszcze ??--%>
-            <td><input type="hidden" name="action" value="register"/></td>
-            <td><input type="submit" value="Save unloading form !"/></td>
-        </tr>
-    </table>
-</form:form>
+
 <br/>
-<form:form method="post" modelAttribute="place">
-<h3 align="bottom">Cargo details :</h3>
-<table align="bottom">
+
+<h3 align="left">Cargo details :</h3>
+<table align="left">
     <caption align="top">Load form:</caption>
     <tr>
         <td>Weight:</td>
@@ -94,18 +80,12 @@
         <td><form:errors path="transitTime" cssClass="error"/></td>
     </tr>
 </table>
-<table>
-    <tr>
-            <%--            value = nie wiem , jeszcze ??--%>
-        <td><input type="hidden" name="action" value="register"/></td>
-        <td><input type="submit" value="Save !"/></td>
-    </tr>
-</table>
-</form:form>
+
+
 <br/>
-<form:form method="post" modelAttribute="truck">
-<h3 align="center">Add truck :</h3>
-<table align="center">
+
+<h3 align="left">Add truck :</h3>
+<table align="left">
     <caption align="top">Truck form:</caption>
     <tr>
         <td>Truck nr:</td>
@@ -124,9 +104,8 @@
     </tr>
     <table>
         <tr>
-                <%--            value = nie wiem , jeszcze ??--%>
             <td><input type="hidden" name="action" value="register"/></td>
-            <td><input type="submit" value="Save truck form !"/></td>
+            <td><input type="submit" value="Save load form !"/></td>
         </tr>
     </table>
 </table>

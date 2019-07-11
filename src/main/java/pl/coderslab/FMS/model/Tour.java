@@ -1,7 +1,4 @@
-package pl.coderslab.FMS.entity;
-
-import pl.coderslab.FMS.entity.Load;
-import pl.coderslab.FMS.entity.Place;
+package pl.coderslab.FMS.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -18,24 +15,22 @@ public class Tour {
     private Long id;
 
     @NotNull
-    @Size(min = 1, max = 10)
     private double distance;
 
 
-    // realacja Tour-Place
+    // relacja Tour-Place
+    @ManyToOne
+    private Place loadingPlace;
 
-    @NotNull
-    @ManyToMany(mappedBy = "tourList")
-    private List<Place> loadingPlace= new ArrayList<>();
+    @ManyToOne
+    private Place unloadingPlace;
 
-
-
-    //realcja Tour-Load
-
-
-    @NotNull
-    @OneToMany(mappedBy = "tour", cascade = CascadeType.REMOVE)
+    //relcja Tour-Load
+    @OneToMany( cascade = CascadeType.REMOVE)
     private List<Load> loads;
+
+    @Enumerated(EnumType.STRING)
+    private TourStatus tourStatus;
 
 
     //setter&getter
@@ -57,12 +52,20 @@ public class Tour {
         this.distance = distance;
     }
 
-    public List<Place> getLoadingPlace() {
+    public Place getLoadingPlace() {
         return loadingPlace;
     }
 
-    public void setLoadingPlace(List<Place> loadingPlace) {
+    public void setLoadingPlace(Place loadingPlace) {
         this.loadingPlace = loadingPlace;
+    }
+
+    public Place getUnloadingPlace() {
+        return unloadingPlace;
+    }
+
+    public void setUnloadingPlace(Place unloadingPlace) {
+        this.unloadingPlace = unloadingPlace;
     }
 
     public List<Load> getLoads() {
@@ -73,8 +76,13 @@ public class Tour {
         this.loads = loads;
     }
 
-    //toString
+    public TourStatus getTourStatus() {
+        return tourStatus;
+    }
 
+    public void setTourStatus(TourStatus tourStatus) {
+        this.tourStatus = tourStatus;
+    }
 
     @Override
     public String toString() {
@@ -82,7 +90,9 @@ public class Tour {
                 "id=" + id +
                 ", distance=" + distance +
                 ", loadingPlace=" + loadingPlace +
+                ", unloadingPlace=" + unloadingPlace +
                 ", loads=" + loads +
+                ", tourStatus=" + tourStatus +
                 '}';
     }
 }

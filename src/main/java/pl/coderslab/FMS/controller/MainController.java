@@ -1,27 +1,36 @@
 package pl.coderslab.FMS.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import pl.coderslab.FMS.model.User;
+import pl.coderslab.FMS.repository.UserRepository;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 @Controller
 public class MainController {
 
+    @Autowired
+    UserRepository userRepository;
 
     @GetMapping("/")
-    public String home(HttpSession httpSession) {
+    public String home(HttpSession httpSession, Model model) {
         if (httpSession.getAttribute("loggedUser") == null) {
 //            return "redirect:/user/authentication";
             return "/authentication/start";
 
         }
-        return "mainMenu";
+        Long loggedUserId = (Long) httpSession.getAttribute("loggedUser");
+        Optional<User> optionalUser = userRepository.findById(loggedUserId);
 
+        model.addAttribute("user", optionalUser.get());
+
+        return "mainMenu";
     }
 
     @ModelAttribute
@@ -56,9 +65,4 @@ public class MainController {
     }
 
     // go to Main Menu --> Add Load
-
-    @GetMapping("/addLoad")
-    public String addLoad() {
-        return "/load/addLoad";
-    }
 }

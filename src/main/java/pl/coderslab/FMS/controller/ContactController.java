@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.coderslab.FMS.ContactsViewMode;
-import pl.coderslab.FMS.entity.Contacts;
+import pl.coderslab.FMS.model.Contacts;
 import pl.coderslab.FMS.repository.ContactRepository;
 
 import javax.validation.Valid;
@@ -63,8 +63,9 @@ public class ContactController {
     //wyswietlanie wszystkich
 
     @GetMapping("/all")
-    public String viewAll(ModelMap model) {
-        model.addAttribute("viewMode", model.getOrDefault("viewMode", new ContactsViewMode()));
+    public String viewAll(Model model) {
+        List<Contacts> contacts = contactRepository.findAll();
+        model.addAttribute("contacts", contacts);
         return "contacts/contactList";
     }
 
@@ -125,4 +126,17 @@ public class ContactController {
     public String goToMenu() {
         return "mainMenu";
     }
+
+    @GetMapping("/goAdd")
+    public String addContact(Model model){
+        model.addAttribute("contacts", new Contacts());
+        return "contacts/add";
+    }
+
+    @PostMapping("/goAdd")
+    public String newContact(@ModelAttribute Contacts contacts){
+        contactRepository.save(contacts);
+        return "/contacts/contactMenu";
+    }
+
 }

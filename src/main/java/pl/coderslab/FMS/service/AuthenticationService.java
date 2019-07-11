@@ -3,7 +3,7 @@ package pl.coderslab.FMS.service;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.coderslab.FMS.entity.User;
+import pl.coderslab.FMS.model.User;
 import pl.coderslab.FMS.repository.UserRepository;
 
 @Service

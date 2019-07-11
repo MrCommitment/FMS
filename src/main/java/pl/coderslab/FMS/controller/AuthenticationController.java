@@ -6,9 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import pl.coderslab.FMS.ViewMode;
-import pl.coderslab.FMS.entity.User;
+import pl.coderslab.FMS.model.User;
 import pl.coderslab.FMS.service.AuthenticationService;
 
 import javax.servlet.http.HttpSession;
