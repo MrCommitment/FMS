@@ -10,5 +10,6 @@ public class ValidationController {
 
     @Autowired
     private Validator validator;
+
 }
 

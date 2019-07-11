@@ -1,26 +1,24 @@
 package pl.coderslab.FMS.entity;
 
 import javax.persistence.*;
+;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "contacts")
+public class Contacts {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotEmpty
-    private String fullName;
+    private String companyName;
 
     @NotEmpty
-    @Email
-    private String email;
+    private String companyAdress;
 
     @NotEmpty
     @Size(min = 5, max = 50)
@@ -30,22 +28,9 @@ public class Customer {
     @Size(min = 10, max = 20)
     private String phoneNr;
 
-
-    //relacja Customer-Load
-
-    @NotNull
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
-    private List<Load> loads;
-
-    public List<Load> getLoads() {
-        return loads;
-    }
-
-    public void setLoads(List<Load> loads) {
-        this.loads = loads;
-    }
-
-    //setter&getter
+    @NotEmpty
+    @Email
+    private String email;
 
 
     public Long getId() {
@@ -56,20 +41,20 @@ public class Customer {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getCompanyName() {
+        return companyName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCompanyAdress() {
+        return companyAdress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCompanyAdress(String companyAdress) {
+        this.companyAdress = companyAdress;
     }
 
     public String getContactPerson() {
@@ -88,18 +73,26 @@ public class Customer {
         this.phoneNr = phoneNr;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
-    //toString
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Contact{" +
                 "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", companyAdress='" + companyAdress + '\'' +
                 ", contactPerson='" + contactPerson + '\'' +
                 ", phoneNr='" + phoneNr + '\'' +
-                ", loads=" + loads +
+                ", email='" + email + '\'' +
                 '}';
     }
 }
+
+
+

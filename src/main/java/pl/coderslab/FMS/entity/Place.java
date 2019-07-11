@@ -17,18 +17,25 @@ public class Place {
 
     @NotEmpty
     @Size(max = 20)
-    private String country;
-
+    private String country1;
 
     @NotEmpty
     private String loadingPlace;
+
+    @NotEmpty
+    @Size(max = 20)
+    private String country2;
 
     @NotEmpty
     private String unloadingPlace;
 
     @NotEmpty
     @Size(min = 1, max = 10)
-    private String postCode;
+    private String postCode1;
+
+    @NotEmpty
+    @Size(min = 1, max = 10)
+    private String postCode2;
 
     //relacja Place-Tour
 
@@ -71,20 +78,36 @@ public class Place {
         this.unloadingPlace = unloadingPlace;
     }
 
-    public String getPostCode() {
-        return postCode;
+    public String getCountry1() {
+        return country1;
     }
 
-    public void setPostCode(String postCode) {
-        this.postCode = postCode;
+    public void setCountry1(String country1) {
+        this.country1 = country1;
     }
 
-    public String getCountry() {
-        return country;
+    public String getCountry2() {
+        return country2;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setCountry2(String country2) {
+        this.country2 = country2;
+    }
+
+    public String getPostCode1() {
+        return postCode1;
+    }
+
+    public void setPostCode1(String postCode1) {
+        this.postCode1 = postCode1;
+    }
+
+    public String getPostCode2() {
+        return postCode2;
+    }
+
+    public void setPostCode2(String postCode2) {
+        this.postCode2 = postCode2;
     }
 
     //toString
@@ -94,10 +117,12 @@ public class Place {
     public String toString() {
         return "Place{" +
                 "id=" + id +
-                ", country='" + country + '\'' +
+                ", country1='" + country1 + '\'' +
                 ", loadingPlace='" + loadingPlace + '\'' +
+                ", country2='" + country2 + '\'' +
                 ", unloadingPlace='" + unloadingPlace + '\'' +
-                ", postCode='" + postCode + '\'' +
+                ", postCode1='" + postCode1 + '\'' +
+                ", postCode2='" + postCode2 + '\'' +
                 ", tourList=" + tourList +
                 '}';
     }

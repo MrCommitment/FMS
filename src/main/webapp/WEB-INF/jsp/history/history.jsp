@@ -1,1 +1,0 @@
-date + truck + load + customer + status ( delivered on time or not)

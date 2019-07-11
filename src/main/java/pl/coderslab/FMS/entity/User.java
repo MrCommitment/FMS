@@ -1,8 +1,12 @@
 package pl.coderslab.FMS.entity;
 
+import org.hibernate.annotations.Check;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class User {
@@ -11,12 +15,18 @@ public class User {
     @GeneratedValue
     private long id;
 
+
+    @NotEmpty
     private String firstName;
 
+    @NotEmpty
     private String secondName;
 
+    @NotEmpty
+    @Email
     private String email;
 
+    @NotEmpty
     private String password;
 
 

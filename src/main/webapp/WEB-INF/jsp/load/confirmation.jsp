@@ -5,4 +5,8 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 
-sumarry load + <truck></truck>
+"Load was added ! "
+
+thank you
+
+you will receieve a reminder at the day of loading.
